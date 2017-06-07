@@ -50,9 +50,9 @@
             </GridPane>
             <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
               <columns>
-                <TableColumn fx:id="name" prefWidth="151.0" text="Name" />
-                <TableColumn fx:id="phone" prefWidth="163.0" text="Telefon" />
-                  <TableColumn fx:id="email" prefWidth="145.0" text="Email" />
+                <TableColumn fx:id="nameColumn" prefWidth="151.0" text="Name" />
+                <TableColumn fx:id="phoneColumn" prefWidth="163.0" text="Telefon" />
+                  <TableColumn fx:id="emailColumn" prefWidth="145.0" text="Email" />
               </columns>
             </TableView>
          </children>
