@@ -1,9 +1,6 @@
 package sample;
 
-import Sourcen.Adressbuch;
-import Sourcen.KeinPassenderKontaktException;
-import Sourcen.Kontakt;
-import Sourcen.UngueltigerSchluesselException;
+import Sourcen.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -103,35 +100,47 @@ public class AdressbuchViewController implements Initializable{
         email.setCellFactory(TextFieldTableCell.<Kontakt>forTableColumn());
         email.setOnEditCommit(event -> updateEmail(event));
 
-        Kontakt[] alleKontkte =  showKontakte(adressbuch.getAlleKontakte());
-        tableContent.addAll(alleKontkte);
+
+        showKontakte(adressbuch.getAlleKontakte());
         tableView.setItems(tableContent);
 
 
-        addButton.setText("Neuer Text wird angezeigt");
+
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
+
               String eingabeName =  nameField.getText();
               String eingabeTelefon =  phoneField.getText();
               String eingabeEmail = emailField.getText();
+
+              if(eingabeName.trim().length() == 0 && eingabeTelefon.trim().length() == 0 && eingabeEmail.trim().length() == 0 ||eingabeName.trim().length() == 0 && eingabeTelefon.trim().length() == 0 ) {
+                  return;
+              }
+
               Kontakt neuerKontakt = new Kontakt(eingabeName,eingabeTelefon,eingabeEmail);
-              tableContent.add(neuerKontakt);
-              tableView.setItems(tableContent);
+                try {
+                    adressbuch.addKontakt(neuerKontakt);
+                } catch (DoppelterSchluesselException e) {
+                    e.printStackTrace();
+                }
+                tableView.setItems(tableContent);
               nameField.clear();
               phoneField.clear();
               emailField.clear();
+              showKontakte(adressbuch.getAlleKontakte());
 
             }
         });
     }
 
     // Methode um die TextArea mit allen Kontakten zu füllen
-    private Kontakt[] showKontakte(Kontakt [] kontakte) {
+    private void showKontakte(Kontakt [] kontakte) {
         tableContent.clear();
         //textArea.setEditable(false);
         //kontakte = adressbuch.getAlleKontakte();
-        return kontakte;
+        tableContent.addAll(kontakte);
     }
 
     // Methode um eingebene Präfixe im Textfeld in der TextArea darzustellen
