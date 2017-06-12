@@ -1,7 +1,6 @@
 package sample;
 
 import Sourcen.Adressbuch;
-import Sourcen.KeinPassenderKontaktException;
 import Sourcen.Kontakt;
 import Sourcen.UngueltigerSchluesselException;
 import javafx.collections.FXCollections;
@@ -15,7 +14,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,17 +34,30 @@ public class AdressbuchViewController implements Initializable{
     @FXML
     private TextArea textArea;
 
-    @FXML
-    private TableColumn<Kontakt, String> phoneColumn;
 
     @FXML
-    private TableColumn<Kontakt, String> nameColumn;
+    private TableColumn<Kontakt, String> phone;
 
     @FXML
-    private TableColumn<Kontakt, String> emailColumn;
+    private TableColumn<Kontakt, String> name;
+
+    @FXML
+    private TableColumn<Kontakt, String> email;
 
     @FXML
     private TableView<Kontakt> tableView;
+
+    @FXML
+    private TextField nameField;
+
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private Button addButton;
+
+    @FXML
+    private TextField phoneField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -107,6 +118,24 @@ public class AdressbuchViewController implements Initializable{
         showKontakte(adressbuch.getAlleKontakte());
         //ObservableList wird in der Tabelle als Items gesetzt
         tableView.setItems(tableContent);
+
+
+        addButton.setText("Neuer Text wird angezeigt");
+        addButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              String eingabeName =  nameField.getText();
+              String eingabeTelefon =  phoneField.getText();
+              String eingabeEmail = emailField.getText();
+              Kontakt neuerKontakt = new Kontakt(eingabeName,eingabeTelefon,eingabeEmail);
+              tableContent.add(neuerKontakt);
+              tableView.setItems(tableContent);
+              nameField.clear();
+              phoneField.clear();
+              emailField.clear();
+
+            }
+        });
     }
 
     // Methode um die TextArea mit allen Kontakten zu füllen
@@ -232,5 +261,10 @@ public class AdressbuchViewController implements Initializable{
 
         Kontakt [] kontakte = adressbuch.getKontakte(query);
         showKontakte(kontakte);
+
+
     }
+
+
+
 }
