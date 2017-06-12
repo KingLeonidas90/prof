@@ -55,6 +55,14 @@
                   <TableColumn fx:id="emailColumn" prefWidth="145.0" text="Email" />
               </columns>
             </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="nameField" promptText="Name" />
+                  <TextField fx:id="phoneField" promptText="Telefon" />
+                  <TextField fx:id="emailField" promptText="Email" />
+                  <Button fx:id="addButton" mnemonicParsing="false" text="Add" />
+               </children>
+            </HBox>
          </children>
       </GridPane>
    </children>
