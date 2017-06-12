@@ -1,22 +1,25 @@
 package sample;
 
 import Sourcen.Adressbuch;
+import Sourcen.KeinPassenderKontaktException;
 import Sourcen.Kontakt;
 import Sourcen.UngueltigerSchluesselException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 
 
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
 
 public class AdressbuchViewController implements Initializable{
 
@@ -47,6 +50,18 @@ public class AdressbuchViewController implements Initializable{
     @FXML
     private TableView<Kontakt> tableView;
 
+    @FXML
+    private TextField nameField;
+
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private Button addButton;
+
+    @FXML
+    private TextField phoneField;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -71,20 +86,51 @@ public class AdressbuchViewController implements Initializable{
     }
 
     private void configureTable() {
-        name.setCellValueFactory(new PropertyValueFactory<Kontakt, String>("name"));
-        phone.setCellValueFactory(new PropertyValueFactory<Kontakt, String>("phone"));
-        email.setCellValueFactory(new PropertyValueFactory<Kontakt, String>("email"));
+        tableView.setEditable(true);
+
+
+        name.setCellValueFactory(new PropertyValueFactory<Kontakt, String>("Name"));
+        name.setCellFactory(TextFieldTableCell.<Kontakt>forTableColumn());
+        name.setOnEditCommit(event -> updateName(event));
+
+
+        phone.setCellValueFactory(new PropertyValueFactory<Kontakt, String>("Telefon"));
+        phone.setCellFactory(TextFieldTableCell.<Kontakt>forTableColumn());
+        phone.setOnEditCommit(event -> updatePhone(event));
+
+
+        email.setCellValueFactory(new PropertyValueFactory<Kontakt, String>("Email"));
+        email.setCellFactory(TextFieldTableCell.<Kontakt>forTableColumn());
+        email.setOnEditCommit(event -> updateEmail(event));
+
         Kontakt[] alleKontkte =  showKontakte(adressbuch.getAlleKontakte());
         tableContent.addAll(alleKontkte);
         tableView.setItems(tableContent);
+
+
+        addButton.setText("Neuer Text wird angezeigt");
+        addButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              String eingabeName =  nameField.getText();
+              String eingabeTelefon =  phoneField.getText();
+              String eingabeEmail = emailField.getText();
+              Kontakt neuerKontakt = new Kontakt(eingabeName,eingabeTelefon,eingabeEmail);
+              tableContent.add(neuerKontakt);
+              tableView.setItems(tableContent);
+              nameField.clear();
+              phoneField.clear();
+              emailField.clear();
+
+            }
+        });
     }
 
     // Methode um die TextArea mit allen Kontakten zu füllen
     private Kontakt[] showKontakte(Kontakt [] kontakte) {
+        tableContent.clear();
         //textArea.setEditable(false);
         //kontakte = adressbuch.getAlleKontakte();
-        for( int i = 0; i<kontakte.length; i++ )
-        { textArea.appendText(kontakte[i] + " \n" + "\n"); }
         return kontakte;
     }
 
@@ -96,6 +142,61 @@ public class AdressbuchViewController implements Initializable{
 
 
     }
+
+
+    private void updateName(TableColumn.CellEditEvent<Kontakt, String> event) {
+
+        String alt = event.getOldValue();
+        String neu = event.getNewValue();
+
+        if (alt.equals(neu)) return;
+
+        int index = event.getTablePosition().getRow();
+
+        Kontakt k = tableView.getItems().get(index);
+        k.setName(neu);
+
+        // Aktualisiersten Kontakt in der Datenbank einpflegen
+        Kontakt aktualisierterKontakt = new Kontakt(k.getName(), k.getTelefon(), k.getEmail());
+
+
+        try {
+            adressbuch.updateKontakt(alt, aktualisierterKontakt);
+        } catch (KeinPassenderKontaktException ex) {
+            ex.printStackTrace();
+        } catch (UngueltigerSchluesselException ex) {
+            ex.printStackTrace();
+        }
+
+        showKontakte(adressbuch.getAlleKontakte());
+
+        try {
+            System.out.println(adressbuch.getKontakt(alt));
+        } catch (UngueltigerSchluesselException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void updatePhone(TableColumn.CellEditEvent<Kontakt, String> event) {
+        String alt = event.getOldValue();
+        String neu = event.getNewValue();
+        if (alt.equals(neu)) return;
+        int index = event.getTablePosition().getRow();
+        Kontakt k = tableView.getItems().get(index);
+        k.setTelefon(neu); }
+
+    private void updateEmail(TableColumn.CellEditEvent<Kontakt, String> event) {
+        String alt = event.getOldValue();
+        String neu = event.getNewValue();
+        if (alt.equals(neu)) return;
+        int index = event.getTablePosition().getRow();
+        Kontakt k = tableView.getItems().get(index);
+        k.setEmail(neu);
+
+
+    }
+
 
 
 
