@@ -127,15 +127,14 @@ public class AdressbuchViewController implements Initializable{
         }
 
         int rowIndex = event.getTablePosition().getRow();
+        //alten Kontakt aus der Reihe holen
+        Kontakt alterKontakt = tableView.getItems().get(rowIndex);
 
-        Kontakt k = tableView.getItems().get(rowIndex);
-        k.setName(neuerName);
-
-        //Kontakt in der Datenbank aktualisieren
-        Kontakt aktualisierterKontakt = new Kontakt(k.getName(), k.getTelefon(), k.getEmail());
+        //Kontakt mit neunem Wert aktualisieren und in der Datenbank aktualisieren
+        Kontakt aktualisierterKontakt = new Kontakt(neuerName, alterKontakt.getTelefon(), alterKontakt.getEmail());
         //TODO: nicht mit altem Namen aufrufen, sondern alten Kontakt bekommen und Schluessel mit Methode selber wählen (name oder nummer)
         try {
-            adressbuch.updateKontakt(alterName, aktualisierterKontakt);
+            adressbuch.updateKontakt(checkOnWhichKey(alterKontakt), aktualisierterKontakt);
         } catch (KeinPassenderKontaktException ex) {
             ex.printStackTrace();
         } catch (UngueltigerSchluesselException ex) {
@@ -144,24 +143,84 @@ public class AdressbuchViewController implements Initializable{
 
         showKontakte(adressbuch.getAlleKontakte());
 
+        //Testausgabe
         try {
-            System.out.println(adressbuch.getKontakt(alterName));
+            System.out.print("neuer Kontakt eingetragen:  ");
+            System.out.println(adressbuch.getKontakt(aktualisierterKontakt.getName()));
         } catch (UngueltigerSchluesselException e) {
             e.printStackTrace();
         }
     }
 
-    //TODO: Logik implementieren
     private void updatetPhone(TableColumn.CellEditEvent<Kontakt, String> event){
+        String alteNummer= event.getOldValue();
+        String neueNummer = event.getNewValue();
 
+        if (alteNummer.equals(neueNummer)){
+            return;
+        }
+
+        int rowIndex = event.getTablePosition().getRow();
+        //alten Kontakt aus der Reihe holen
+        Kontakt alterKontakt = tableView.getItems().get(rowIndex);
+
+        //Kontakt mit neunem Wert aktualisieren und in der Datenbank aktualisieren
+        Kontakt aktualisierterKontakt = new Kontakt(alterKontakt.getName(), neueNummer, alterKontakt.getEmail());
+        //TODO: nicht mit altem Namen aufrufen, sondern alten Kontakt bekommen und Schluessel mit Methode selber wählen (name oder nummer)
+        try {
+            adressbuch.updateKontakt(checkOnWhichKey(alterKontakt), aktualisierterKontakt);
+        } catch (KeinPassenderKontaktException ex) {
+            ex.printStackTrace();
+        } catch (UngueltigerSchluesselException ex) {
+            ex.printStackTrace();
+        }
+
+        showKontakte(adressbuch.getAlleKontakte());
+
+        //Testausgabe
+        try {
+            System.out.print("neuer Kontakt eingetragen:  ");
+            System.out.println(adressbuch.getKontakt(aktualisierterKontakt.getTelefon()));
+        } catch (UngueltigerSchluesselException e) {
+            e.printStackTrace();
+        }
     }
 
-    //TODO: Logik implementieren
     private void updateEmail(TableColumn.CellEditEvent<Kontakt, String> event){
+        String alteMail= event.getOldValue();
+        String neueMail = event.getNewValue();
 
+        if (alteMail.equals(neueMail)){
+            return;
+        }
+
+        int rowIndex = event.getTablePosition().getRow();
+        //alten Kontakt aus der Reihe holen
+        Kontakt alterKontakt = tableView.getItems().get(rowIndex);
+
+        //Kontakt mit neunem Wert aktualisieren und in der Datenbank aktualisieren
+        Kontakt aktualisierterKontakt = new Kontakt(alterKontakt.getName(), alterKontakt.getTelefon(), neueMail);
+        try {
+            adressbuch.updateKontakt(checkOnWhichKey(alterKontakt), aktualisierterKontakt);
+        } catch (KeinPassenderKontaktException ex) {
+            ex.printStackTrace();
+        } catch (UngueltigerSchluesselException ex) {
+            ex.printStackTrace();
+        }
+
+        showKontakte(adressbuch.getAlleKontakte());
+
+        //Testausgabe
+        try {
+            System.out.print("neuer Kontakt eingetragen:  ");
+            System.out.println(adressbuch.getKontakt(aktualisierterKontakt.getTelefon()));
+        } catch (UngueltigerSchluesselException e) {
+            e.printStackTrace();
+        }
     }
 
     private String checkOnWhichKey(Kontakt kontakt){
+        //Wenn der Kontakt keinen Namen hat, wird die Telefonnummer als Schluessel zuruewckgegeben
         if (kontakt.getName().trim().length() != 0){
             return kontakt.getName();
         }
