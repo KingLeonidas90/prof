@@ -125,6 +125,7 @@ public class AdressbuchViewController implements Initializable{
                 } catch (DoppelterSchluesselException e) {
                     e.printStackTrace();
                 }
+
                 tableView.setItems(tableContent);
               nameField.clear();
               phoneField.clear();
