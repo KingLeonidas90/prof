@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import sample.AdressbuchViewController;
 
 /**
  * FXML Controller class
@@ -40,7 +41,7 @@ public class ErrorViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         errorButton.setOnAction(event -> showExampleError ());
-        viewButton.setOnAction(event -> showExampleView ());
+        viewButton.setOnAction(event -> showExampleError());
         fehler.setText(error);
     }
 
@@ -48,10 +49,11 @@ public class ErrorViewController implements Initializable {
             ViewHelper.showError("So kann man eine Fehlermeldung anzeigen!");
             }
 
+            /*
     private void showExampleView() {
             Initializable controller = new InputViewController(this);
             URL location = getClass().getResource("inputView.fxml");
             ViewHelper.showView(controller, location);
             }
-    
+    */
 }
