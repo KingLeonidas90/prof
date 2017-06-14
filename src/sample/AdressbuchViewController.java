@@ -27,11 +27,13 @@ public class AdressbuchViewController implements Initializable{
     //Die Tabelle aktualisiert daraufhin ihre Anzeige.
     private ObservableList<Kontakt> tableContent;
 
+
     @FXML
     private TextField searchField;
 
     @FXML
     private TextArea textArea;
+
 
     @FXML
     private TableColumn<Kontakt, String> phone;
@@ -147,6 +149,8 @@ public class AdressbuchViewController implements Initializable{
 
         Kontakt [] kontakte = adressbuch.getKontakte(query);
         showKontakte(kontakte);
+
+
     }
 
 
@@ -199,5 +203,11 @@ public class AdressbuchViewController implements Initializable{
         int index = event.getTablePosition().getRow();
         Kontakt k = tableView.getItems().get(index);
         k.setEmail(neu);
+
+
     }
+
+
+
+
 }
