@@ -10,7 +10,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 /**
@@ -19,12 +18,6 @@ import javafx.scene.control.Label;
  * @author beuth
  */
 public class ErrorViewController implements Initializable {
-
-    @FXML
-    private Button errorButton;
-
-    @FXML
-    private Button viewButton;
 
     @FXML
     Label fehler;
@@ -39,19 +32,7 @@ public class ErrorViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        errorButton.setOnAction(event -> showExampleError ());
-        viewButton.setOnAction(event -> showExampleView ());
         fehler.setText(error);
-    }
-
-    private void showExampleError () {
-            ViewHelper.showError("So kann man eine Fehlermeldung anzeigen!");
-            }
-
-    private void showExampleView() {
-            Initializable controller = new InputViewController(this);
-            URL location = getClass().getResource("inputView.fxml");
-            ViewHelper.showView(controller, location);
-            }
+    }    
     
 }
