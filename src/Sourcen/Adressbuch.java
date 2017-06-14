@@ -219,6 +219,7 @@ public class Adressbuch {
                 addKontakt(kontakt);
             } catch (DoppelterSchluesselException ex) {
                 Logger.getLogger(Adressbuch.class.getName()).log(Level.SEVERE, null, ex);
+                ViewHelper.showError(ex.toString());
             }
         }
     }

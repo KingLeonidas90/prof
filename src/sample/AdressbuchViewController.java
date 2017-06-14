@@ -110,7 +110,6 @@ public class AdressbuchViewController implements Initializable{
             @Override
             public void handle(ActionEvent event) {
 
-
               String eingabeName =  nameField.getText();
               String eingabeTelefon =  phoneField.getText();
               String eingabeEmail = emailField.getText();
@@ -123,14 +122,14 @@ public class AdressbuchViewController implements Initializable{
                 try {
                     adressbuch.addKontakt(neuerKontakt);
                 } catch (DoppelterSchluesselException e) {
+                    ViewHelper.showError(e.toString());
                     e.printStackTrace();
                 }
                 tableView.setItems(tableContent);
-              nameField.clear();
-              phoneField.clear();
-              emailField.clear();
-              showKontakte(adressbuch.getAlleKontakte());
-
+                nameField.clear();
+                phoneField.clear();
+                emailField.clear();
+                showKontakte(adressbuch.getAlleKontakte());
             }
         });
     }
@@ -163,18 +162,20 @@ public class AdressbuchViewController implements Initializable{
         int index = event.getTablePosition().getRow();
 
         Kontakt k = tableView.getItems().get(index);
-        k.setName(neu);
+
 
         // Aktualisiersten Kontakt in der Datenbank einpflegen
-        Kontakt aktualisierterKontakt = new Kontakt(k.getName(), k.getTelefon(), k.getEmail());
+        Kontakt aktualisierterKontakt = new Kontakt(neu, k.getTelefon(), k.getEmail());
 
 
         try {
             adressbuch.updateKontakt(checkOnWhichKey(k), aktualisierterKontakt);
         } catch (KeinPassenderKontaktException ex) {
             ex.printStackTrace();
+            ViewHelper.showError(ex.toString());
         } catch (UngueltigerSchluesselException ex) {
             ex.printStackTrace();
+            ViewHelper.showError(ex.toString());
         }
 
         showKontakte(adressbuch.getAlleKontakte());
@@ -187,11 +188,9 @@ public class AdressbuchViewController implements Initializable{
             System.out.println(adressbuch.getKontakt(aktualisierterKontakt.getName()));
 
         } catch (UngueltigerSchluesselException e) {
-
             e.printStackTrace();
-
+            ViewHelper.showError(e.toString());
         }
-
     }
 
     private void updatePhone(TableColumn.CellEditEvent<Kontakt, String> event) {
@@ -200,36 +199,27 @@ public class AdressbuchViewController implements Initializable{
         if (alt.equals(neu)) return;
         int index = event.getTablePosition().getRow();
         Kontakt k = tableView.getItems().get(index);
-        k.setTelefon(neu);
-
-        Kontakt aktualisierterKontakt = new Kontakt(k.getName(), k.getTelefon(), k.getEmail());
-
+        Kontakt aktualisierterKontakt = new Kontakt(k.getName(), neu, k.getEmail());
 
         try {
             adressbuch.updateKontakt(checkOnWhichKey(k), aktualisierterKontakt);
         } catch (KeinPassenderKontaktException ex) {
+            ViewHelper.showError(ex.toString());
             ex.printStackTrace();
         } catch (UngueltigerSchluesselException ex) {
+            ViewHelper.showError(ex.toString());
             ex.printStackTrace();
         }
-
         showKontakte(adressbuch.getAlleKontakte());
-
 
         //Testausgabe
         try {
             System.out.print("neue Telefonnummer eingetragen:  ");
-
             System.out.println(adressbuch.getKontakt(aktualisierterKontakt.getTelefon()));
-
         } catch (UngueltigerSchluesselException e) {
-
             e.printStackTrace();
-
+            ViewHelper.showError(e.toString());
         }
-
-
-
     }
 
     private void updateEmail(TableColumn.CellEditEvent<Kontakt, String> event) {
@@ -238,32 +228,28 @@ public class AdressbuchViewController implements Initializable{
         if (alt.equals(neu)) return;
         int index = event.getTablePosition().getRow();
         Kontakt k = tableView.getItems().get(index);
-        k.setEmail(neu);
 
-        Kontakt aktualisierterKontakt = new Kontakt(k.getName(), k.getTelefon(), k.getEmail());
-
+        Kontakt aktualisierterKontakt = new Kontakt(k.getName(), k.getTelefon(),  neu);
 
         try {
             adressbuch.updateKontakt(checkOnWhichKey(k), aktualisierterKontakt);
         } catch (KeinPassenderKontaktException ex) {
             ex.printStackTrace();
+            ViewHelper.showError(ex.toString());
         } catch (UngueltigerSchluesselException ex) {
             ex.printStackTrace();
+            ViewHelper.showError(ex.toString());
         }
 
         showKontakte(adressbuch.getAlleKontakte());
 
-
         //Testausgabe
         try {
             System.out.print("neue Emailadresse eingetragen:  ");
-
             System.out.println(adressbuch.getKontakt(aktualisierterKontakt.getEmail()));
-
         } catch (UngueltigerSchluesselException e) {
-
+            ViewHelper.showError(e.toString());
             e.printStackTrace();
-
         }
 
 

@@ -21,10 +21,7 @@ import javafx.scene.control.Label;
 public class ErrorViewController implements Initializable {
 
     @FXML
-    private Button errorButton;
-
-    @FXML
-    private Button viewButton;
+    Button errorButton;
 
     @FXML
     Label fehler;
@@ -39,7 +36,7 @@ public class ErrorViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        errorButton.setOnAction(event -> showExampleError ());
+
      //   viewButton.setOnAction(event -> showExampleView ());
         fehler.setText(error);
     }

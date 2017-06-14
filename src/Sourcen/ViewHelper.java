@@ -35,7 +35,7 @@ public class ViewHelper {
      * @param controller Der für die GUI zu verwendende Controller
      * @param location   Die URL der FXML-Datei mit der GUI-Beschreibung
      */
-    public static void showView(Initializable controller, URL location) {
+    public static void showView(Initializable  controller, URL location) {
         Stage editStage = new Stage(StageStyle.UTILITY);
         editStage.setTitle("");
 
