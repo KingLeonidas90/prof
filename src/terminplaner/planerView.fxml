@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -8,5 +9,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="terminplaner.PlanerViewController" />
+<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="terminplaner.PlanerViewController">
+   <children>
+      <HBox prefHeight="67.0" prefWidth="405.0">
+         <children>
+            <Label fx:id="titel" prefHeight="55.0" prefWidth="403.0" text="Terminplaner">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <MenuBar fx:id="menuBar" layoutY="55.0" prefHeight="39.0" prefWidth="403.0">
+        <menus>
+          <Menu fx:id="termineMenu" mnemonicParsing="false" text="Termine" />
+          <Menu fx:id="kontakteMenu" mnemonicParsing="false" text="Kontakte" />
+        </menus>
+      </MenuBar>
+      <HBox alignment="TOP_CENTER" layoutX="6.0" layoutY="108.0" prefHeight="100.0" prefWidth="396.0">
+         <children>
+            <Label prefHeight="40.0" prefWidth="117.0" text="Datum wählen" />
+            <DatePicker fx:id="date" prefHeight="39.0" prefWidth="272.0" />
+         </children>
+      </HBox>
+      <ListView fx:id="terminliste" layoutX="8.0" layoutY="174.0" prefHeight="267.0" prefWidth="387.0" />
+      <Button fx:id="addButton" layoutX="333.0" layoutY="456.0" mnemonicParsing="false" text="Neu" />
+   </children>
+</AnchorPane>

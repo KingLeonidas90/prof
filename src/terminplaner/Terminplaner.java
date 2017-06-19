@@ -1,8 +1,9 @@
 package terminplaner;
 
-import adressbuch.Kontakt;
+import Sourcen.Kontakt;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
 
 /**
  * Repraesentiert einen Terminplaner mit einem Besitzer, der Termine ueber 
