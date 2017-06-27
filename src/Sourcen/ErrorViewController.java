@@ -38,7 +38,7 @@ public class ErrorViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
      //   viewButton.setOnAction(event -> showExampleView ());
-        fehler.setText(error);
+    fehler.setText(error);
     }
 
     private void showExampleError () {

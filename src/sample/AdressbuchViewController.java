@@ -16,8 +16,6 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
-
 public class AdressbuchViewController implements Initializable{
 
     private Adressbuch adressbuch;
@@ -59,6 +57,11 @@ public class AdressbuchViewController implements Initializable{
     @FXML
     private TextField phoneField;
 
+    public AdressbuchViewController(Adressbuch adressbuch){
+        this.adressbuch = adressbuch;
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -78,6 +81,7 @@ public class AdressbuchViewController implements Initializable{
                 e.printStackTrace();
             }
         } );*/
+        // Erzeugen einer Instanz von ObservableList<Kontakt>
         tableContent = FXCollections.observableArrayList();
         configureTable();
     }
@@ -85,18 +89,22 @@ public class AdressbuchViewController implements Initializable{
     private void configureTable() {
         tableView.setEditable(true);
 
-
+        // Festlegen, mit welchem Attributwert der Tabelle die Spalte gekoppelt werden soll, in diesem Fall mit "Name"
         name.setCellValueFactory(new PropertyValueFactory<Kontakt, String>("Name"));
+        // Der Zelle einer Spalte ein Texteingabefeld zuweisen, dieses wird bei einem Doppelklick auf die Zelle angezeigt
         name.setCellFactory(TextFieldTableCell.<Kontakt>forTableColumn());
+        //EventListener, der bei Eingabe die Methode updateName aufruft
         name.setOnEditCommit(event -> updateName(event));
 
-
+        // Festlegen, mit welchem Attributwert der Tabelle die Spalte gekoppelt werden soll, in diesem Fall mit "Telefon"
         phone.setCellValueFactory(new PropertyValueFactory<Kontakt, String>("Telefon"));
+        // Der Zelle einer Spalte ein Texteingabefeld zuweisen, dieses wird bei einem Doppelklick auf die Zelle angezeigt
         phone.setCellFactory(TextFieldTableCell.<Kontakt>forTableColumn());
         phone.setOnEditCommit(event -> updatePhone(event));
 
-
+        // Festlegen, mit welchem Attributwert der Tabelle die Spalte gekoppelt werden soll, in diesem Fall mit "Email"
         email.setCellValueFactory(new PropertyValueFactory<Kontakt, String>("Email"));
+        // Der Zelle einer Spalte ein Texteingabefeld zuweisen, dieses wird bei einem Doppelklick auf die Zelle angezeigt
         email.setCellFactory(TextFieldTableCell.<Kontakt>forTableColumn());
         email.setOnEditCommit(event -> updateEmail(event));
 
@@ -105,7 +113,7 @@ public class AdressbuchViewController implements Initializable{
         tableView.setItems(tableContent);
 
 
-
+        //EventListener für den addButton erstellt
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -159,17 +167,19 @@ public class AdressbuchViewController implements Initializable{
 
         if (alt.equals(neu)) return;
 
+        // Zugriff auf den Index der editierten Zeile
         int index = event.getTablePosition().getRow();
 
-        Kontakt k = tableView.getItems().get(index);
+        // Zugriff auf das dazugehörige Kontakt-Objekt in der Tabelle
+        Kontakt alterKontakt = tableView.getItems().get(index);
 
 
         // Aktualisiersten Kontakt in der Datenbank einpflegen
-        Kontakt aktualisierterKontakt = new Kontakt(neu, k.getTelefon(), k.getEmail());
+        Kontakt aktualisierterKontakt = new Kontakt(neu, alterKontakt.getTelefon(), alterKontakt.getEmail());
 
 
         try {
-            adressbuch.updateKontakt(checkOnWhichKey(k), aktualisierterKontakt);
+            adressbuch.updateKontakt(checkOnWhichKeyIsNeeded(alterKontakt), aktualisierterKontakt);
         } catch (KeinPassenderKontaktException ex) {
             ex.printStackTrace();
             ViewHelper.showError(ex.toString());
@@ -178,6 +188,7 @@ public class AdressbuchViewController implements Initializable{
             ViewHelper.showError(ex.toString());
         }
 
+        // Neues Laden der TableView, damit der geänderte Name in der richtigen Reihenfolge angezeigt wird
         showKontakte(adressbuch.getAlleKontakte());
 
 
@@ -198,11 +209,11 @@ public class AdressbuchViewController implements Initializable{
         String neu = event.getNewValue();
         if (alt.equals(neu)) return;
         int index = event.getTablePosition().getRow();
-        Kontakt k = tableView.getItems().get(index);
-        Kontakt aktualisierterKontakt = new Kontakt(k.getName(), neu, k.getEmail());
+        Kontakt alterKontakt = tableView.getItems().get(index);
+        Kontakt aktualisierterKontakt = new Kontakt(alterKontakt.getName(), neu, alterKontakt.getEmail());
 
         try {
-            adressbuch.updateKontakt(checkOnWhichKey(k), aktualisierterKontakt);
+            adressbuch.updateKontakt(checkOnWhichKeyIsNeeded(alterKontakt), aktualisierterKontakt);
         } catch (KeinPassenderKontaktException ex) {
             ViewHelper.showError(ex.toString());
             ex.printStackTrace();
@@ -227,12 +238,12 @@ public class AdressbuchViewController implements Initializable{
         String neu = event.getNewValue();
         if (alt.equals(neu)) return;
         int index = event.getTablePosition().getRow();
-        Kontakt k = tableView.getItems().get(index);
+        Kontakt alterKontakt = tableView.getItems().get(index);
 
-        Kontakt aktualisierterKontakt = new Kontakt(k.getName(), k.getTelefon(),  neu);
+        Kontakt aktualisierterKontakt = new Kontakt(alterKontakt.getName(), alterKontakt.getTelefon(),  neu);
 
         try {
-            adressbuch.updateKontakt(checkOnWhichKey(k), aktualisierterKontakt);
+            adressbuch.updateKontakt(checkOnWhichKeyIsNeeded(alterKontakt), aktualisierterKontakt);
         } catch (KeinPassenderKontaktException ex) {
             ex.printStackTrace();
             ViewHelper.showError(ex.toString());
@@ -255,7 +266,7 @@ public class AdressbuchViewController implements Initializable{
 
     }
 
-    private String checkOnWhichKey(Kontakt kontakt) {
+    private String checkOnWhichKeyIsNeeded(Kontakt kontakt) {
 
         //Wenn der Kontakt keinen Namen hat, wird die Telefonnummer als Schluessel zurueckgegeben
         if (kontakt.getName().trim().length() != 0) {

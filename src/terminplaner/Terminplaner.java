@@ -1,6 +1,9 @@
 package terminplaner;
 
 import Sourcen.Kontakt;
+
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -13,6 +16,7 @@ import java.time.LocalTime;
 public class Terminplaner extends TerminVerwaltung {
 
     private Kontakt besitzer;
+            Terminplaner planer;
 
     /**
      * Initialisiert den Terminplaner. Hier wird der Client erzeugt und der
@@ -96,5 +100,11 @@ public class Terminplaner extends TerminVerwaltung {
         } catch (UngueltigerTerminException e) {
             System.out.println(e);
         }
+    }
+
+    public void save(File file) throws IOException{
+        planer.getAllTermine();
+
+
     }
 }

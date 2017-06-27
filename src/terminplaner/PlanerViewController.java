@@ -2,7 +2,9 @@ package terminplaner;
 
 import Sourcen.Kontakt;
 import Sourcen.UngueltigerSchluesselException;
+import Sourcen.ViewHelper;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,6 +22,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import sample.AdressbuchViewController;
 
 /**
  * FXML Controller class fuer die Terminplaner-Hauptansicht.
@@ -52,7 +55,7 @@ public class PlanerViewController implements Initializable {
     private Menu kontakteMenu;
 
     @FXML
-    private ListView<Kontakt> terminliste;
+    private ListView<Termin> terminliste;
 
     /**
      * Initializes the controller class.
@@ -83,6 +86,7 @@ public class PlanerViewController implements Initializable {
         //angepasste MenuBar laden
         configureMenu();
         configureList();
+        saveTermine();
 
 
     }
@@ -93,6 +97,16 @@ public class PlanerViewController implements Initializable {
     }
 
     private void showTermine() {
+        terminliste.getItems().clear();
+        date.setValue(getSelectedDate());
+        if (planer.getTermineTag(date.getValue()) != null) {
+
+            data.addAll(planer.getTermineTag(date.getValue()));
+        } else {
+            terminliste.getItems().clear();
+        }
+        terminliste.setItems(data);
+
 
     }
 
@@ -116,9 +130,17 @@ public class PlanerViewController implements Initializable {
 
     private void configureList() {
 
-        planer.get
-        System.out.println(planer);
+        /* Termin termineDave = (Termin) planer.getTermineTag(LocalDate.of(2014,10,24));
+        data.add(termineDave);
+        terminliste.setItems(data);
+        System.out.println(planer);*/
 
+        date.setValue(getSelectedDate());
+        terminliste.setItems(data);
+
+
+        ObservableList<Termin> s = terminliste.getSelectionModel().getSelectedItems();
+        s.addListener((ListChangeListener.Change<? extends Termin> c) -> editTermin());
 
 
     }
@@ -128,10 +150,26 @@ public class PlanerViewController implements Initializable {
 
     }
 
+    public Adressbuch getAdressbuch() {
+        return adressen;
+    }
+
+    public LocalDate getSelectedDate() {
+        return date.getValue();
+    }
+
+    private void editTermin() {
+
+    }
+
+
     private void loadTermine() {
     }
 
     private void editKontakte() {
+        AdressbuchViewController adressbuch = new AdressbuchViewController(adressen);
+        ViewHelper.showAdresessView(getAdressbuch());
+
     }
 
 
