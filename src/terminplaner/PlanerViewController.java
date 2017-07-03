@@ -1,6 +1,5 @@
 package terminplaner;
 
-import Sourcen.Kontakt;
 import Sourcen.UngueltigerSchluesselException;
 import Sourcen.ViewHelper;
 import javafx.collections.FXCollections;
@@ -19,10 +18,9 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import sample.AdressbuchViewController;
+import Sourcen.AdressbuchViewController;
 
 /**
  * FXML Controller class fuer die Terminplaner-Hauptansicht.
@@ -167,9 +165,15 @@ public class PlanerViewController implements Initializable {
     }
 
     private void editKontakte() {
-        AdressbuchViewController adressbuch = new AdressbuchViewController(adressen);
-        ViewHelper.showAdresessView(getAdressbuch());
 
+        showAdresessView();
+
+    }
+    public  void showAdresessView() {
+        URL location = new ViewHelper().getClass().getResource("../Sourcen/adressbuchView.fxml");
+
+        Initializable controller = new AdressbuchViewController(adressen);
+        ViewHelper.showView(controller, location);
     }
 
 

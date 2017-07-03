@@ -1,4 +1,4 @@
-package sample;
+package Sourcen;
 
 import Sourcen.*;
 import javafx.collections.FXCollections;
@@ -66,7 +66,7 @@ public class AdressbuchViewController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
 
         // neues Adressbuch Objekt initialisieren
-       adressbuch = new Adressbuch();
+
         //showKontakte(adressbuch.getAlleKontakte());
         /*searchField.setText("Hier wird ein neuer String eingetragen");
         String txt = searchField.getText();

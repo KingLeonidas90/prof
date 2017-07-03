@@ -2,15 +2,13 @@ package Sourcen;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.AdressbuchViewController;
 
 /**
  * Die Klasse ViewHelper besitzt statische Methoden für das Anzeigen von GUI-Elementen
@@ -30,12 +28,7 @@ public class ViewHelper {
         showView(controller, location);
     }
 
-    public static void showAdresessView(Adressbuch adressbuch) {
-        URL location = new ViewHelper().getClass().getResource("adressbuchView.fxml");
 
-        Initializable controller = new AdressbuchViewController(adressbuch);
-        showView(controller, location);
-    }
 
     /**
      * Laedt eine neue Scene in einer Stage mit dem übergebenen Controller und 
@@ -45,7 +38,7 @@ public class ViewHelper {
      */
     public static void showView(Initializable  controller, URL location) {
         Stage editStage = new Stage(StageStyle.UTILITY);
-        editStage.setTitle("Fehlermeldung");
+        editStage.setTitle("");
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(location);
@@ -60,4 +53,6 @@ public class ViewHelper {
             System.out.println(ex);
         }
     }
+
+
 }

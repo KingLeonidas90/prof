@@ -75,10 +75,10 @@ public class Adressbuch {
         try {
             String name = kontakt.getName();
             String telNr = kontakt.getTelefon();
-            if (!name.isEmpty() && schluesselBekannt(name)) {
+            if (schluesselBekannt(name)) {
                 throw new DoppelterSchluesselException(name);
             }
-            if (!telNr.isEmpty() && schluesselBekannt(telNr)) {
+            if (schluesselBekannt(telNr)) {
                 throw new DoppelterSchluesselException(telNr);
             }
         } catch (UngueltigerSchluesselException ex) {
