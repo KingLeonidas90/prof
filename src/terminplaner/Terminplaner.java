@@ -4,6 +4,7 @@ import Sourcen.Kontakt;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -13,7 +14,7 @@ import java.time.LocalTime;
  * den Server an alle angemeldeten Teilnehmer schicken kann.
  * @author beuth
  */
-public class Terminplaner extends TerminVerwaltung {
+public class Terminplaner extends TerminVerwaltung implements Serializable{
 
     private Kontakt besitzer;
             Terminplaner planer;
@@ -25,7 +26,7 @@ public class Terminplaner extends TerminVerwaltung {
      */
     public Terminplaner(Kontakt k) {
         besitzer = k;
-        setTestData();
+        //setTestData();
     }
 
     public Kontakt getBesitzer() {
@@ -80,7 +81,7 @@ public class Terminplaner extends TerminVerwaltung {
         }
     }
 
-
+/*
     private void setTestData() {
         LocalDate d = LocalDate.of(2014, 10, 24);
         Kontakt dave = new Kontakt("david", "08459 100000", "david@gmx.de");
@@ -101,10 +102,13 @@ public class Terminplaner extends TerminVerwaltung {
             System.out.println(e);
         }
     }
+    */
 
     public void save(File file) throws IOException{
         planer.getAllTermine();
+    }
 
+    public void load(File file) throws Exception{
 
     }
 }

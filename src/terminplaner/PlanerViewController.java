@@ -14,6 +14,7 @@ import javafx.scene.control.MenuBar;
 
 import Sourcen.Adressbuch;
 
+import java.io.*;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -21,6 +22,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import Sourcen.AdressbuchViewController;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class fuer die Terminplaner-Hauptansicht.
@@ -28,7 +31,6 @@ import Sourcen.AdressbuchViewController;
  * @author beuth
  */
 public class PlanerViewController implements Initializable {
-
 
     private Terminplaner planer;
     private Adressbuch adressen;
@@ -84,14 +86,10 @@ public class PlanerViewController implements Initializable {
         //angepasste MenuBar laden
         configureMenu();
         configureList();
-        saveTermine();
-
-
+        //saveTermine();
     }
 
     private void addTermin() {
-
-
     }
 
     private void showTermine() {
@@ -104,8 +102,6 @@ public class PlanerViewController implements Initializable {
             terminliste.getItems().clear();
         }
         terminliste.setItems(data);
-
-
     }
 
     private void configureMenu() {
@@ -114,17 +110,14 @@ public class PlanerViewController implements Initializable {
         kontakteMenu.getItems().add(new MenuItem("Bearbeiten"));
 
         // Event Handler um termine zu speichern
-        termineMenu.setOnAction(event -> saveTermine());
+        termineMenu.setOnAction(event -> loadTermine());
 
         // Event Handler um Termine zu laden
         termineMenu.setOnAction(event -> loadTermine());
 
         // Event Handler um Kontakte zu bearbeiten
         kontakteMenu.setOnAction(event -> editKontakte());
-
-
     }
-
 
     private void configureList() {
 
@@ -136,15 +129,56 @@ public class PlanerViewController implements Initializable {
         date.setValue(getSelectedDate());
         terminliste.setItems(data);
 
-
         ObservableList<Termin> s = terminliste.getSelectionModel().getSelectedItems();
         s.addListener((ListChangeListener.Change<? extends Termin> c) -> editTermin());
-
-
     }
 
-    private void saveTermine() {
+    private void saveTermine(){
 
+        //FileChooser erstellen
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Speicherort wählen");
+        //Auswgewählten Ordner in Variable speichern
+        File file = fileChooser.showSaveDialog(new Stage());
+
+        //FileOutputstream initialisieren
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ObjectOutputStream objOutputStream = new ObjectOutputStream(fileOutputStream);
+            objOutputStream.writeObject(planer);
+            objOutputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            ViewHelper.showError(e.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+            ViewHelper.showError("Datei konnte nicht gespeichert werden");
+        }
+
+        //Termine des Planers in ausgewählten Ordner abspeichern  <-- auf IOException prüfen
+    }
+
+    private void loadTermine() {
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Datei auswählen");
+        File file = fileChooser.showOpenDialog(new Stage());
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            Terminplaner planer = (Terminplaner) objectInputStream.readObject();
+            objectInputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            ViewHelper.showError("Datei konnte nicht geladen werden");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        showTermine();
 
     }
 
@@ -157,24 +191,18 @@ public class PlanerViewController implements Initializable {
     }
 
     private void editTermin() {
-
     }
 
-
-    private void loadTermine() {
-    }
 
     private void editKontakte() {
 
         showAdresessView();
-
     }
+
     public  void showAdresessView() {
         URL location = new ViewHelper().getClass().getResource("../Sourcen/adressbuchView.fxml");
 
         Initializable controller = new AdressbuchViewController(adressen);
         ViewHelper.showView(controller, location);
     }
-
-
 }
