@@ -2,22 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Unterlagen/Uebung_8.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Unterlagen/V8.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/terminplaner/TerminViewController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/terminplaner/terminView.fxml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/sample/AdressbuchStart.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/sample/AdressbuchViewController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/sample/adressbuchView.fxml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/AdressbuchStart.java" afterPath="$PROJECT_DIR$/src/Sourcen/AdressbuchStart.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/AdressbuchViewController.java" afterPath="$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/adressbuchView.fxml" afterPath="$PROJECT_DIR$/src/Sourcen/adressbuchView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/Adressbuch.class" afterPath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/Adressbuch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/ViewHelper.class" afterPath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/ViewHelper.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/Adressbuch.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/DoppelterSchluesselException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/ErrorViewController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/KeinPassenderKontaktException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/Kontakt.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/UngueltigerSchluesselException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/ViewHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/UBG_5/Sourcen/errorView.fxml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/Adressbuch.java" afterPath="$PROJECT_DIR$/src/adressbuch/Adressbuch.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/AdressbuchStart.java" afterPath="$PROJECT_DIR$/src/adressbuch/AdressbuchStart.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java" afterPath="$PROJECT_DIR$/src/adressbuch/AdressbuchViewController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/DoppelterSchluesselException.java" afterPath="$PROJECT_DIR$/src/adressbuch/DoppelterSchluesselException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/ErrorViewController.java" afterPath="$PROJECT_DIR$/src/adressbuch/ErrorViewController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/KeinPassenderKontaktException.java" afterPath="$PROJECT_DIR$/src/adressbuch/KeinPassenderKontaktException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/Kontakt.java" afterPath="$PROJECT_DIR$/src/adressbuch/Kontakt.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/UngueltigerSchluesselException.java" afterPath="$PROJECT_DIR$/src/adressbuch/UngueltigerSchluesselException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/ViewHelper.java" afterPath="$PROJECT_DIR$/src/adressbuch/ViewHelper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/adressbuchView.fxml" afterPath="$PROJECT_DIR$/src/adressbuch/adressbuchView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Sourcen/errorView.fxml" afterPath="$PROJECT_DIR$/src/adressbuch/errorView.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Sourcen/Adressbuch.java" afterPath="$PROJECT_DIR$/src/Sourcen/Adressbuch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Sourcen/ViewHelper.java" afterPath="$PROJECT_DIR$/src/Sourcen/ViewHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/terminplaner/PlanerViewController.java" afterPath="$PROJECT_DIR$/src/terminplaner/PlanerViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/terminplaner/Termin.java" afterPath="$PROJECT_DIR$/src/terminplaner/Termin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/terminplaner/TerminViewController.java" afterPath="$PROJECT_DIR$/src/terminplaner/TerminViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/terminplaner/Terminplaner.java" afterPath="$PROJECT_DIR$/src/terminplaner/Terminplaner.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,69 +84,60 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="AdressbuchStart.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchStart.java">
+      <file leaf-file-name="AdressbuchViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="2150">
+              <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="terminView.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/terminplaner/terminView.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartPlaner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/terminplaner/StartPlaner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="46" lean-forward="true" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Sourcen/ViewHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdressbuchViewController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="181" column="29" lean-forward="false" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="PlanerViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/terminplaner/PlanerViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="165" column="0" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+            <state relative-caret-position="430">
+              <caret line="191" column="0" lean-forward="true" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4177#4178#0" expanded="true" />
+                <element signature="e#4215#4216#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Adressbuch.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Sourcen/Adressbuch.java">
+      <file leaf-file-name="Terminplaner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/terminplaner/Terminplaner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="70" column="8" lean-forward="true" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+            <state relative-caret-position="355">
+              <caret line="119" column="44" lean-forward="true" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Kontakt.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/adressbuch/Kontakt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -147,9 +146,11 @@
       <file leaf-file-name="TerminViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/terminplaner/TerminViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-              <folding />
+            <state relative-caret-position="2880">
+              <caret line="183" column="7" lean-forward="false" selection-start-line="183" selection-start-column="7" selection-end-line="183" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -196,13 +197,15 @@
         <option value="$PROJECT_DIR$/src/terminplaner/Termin.java" />
         <option value="$PROJECT_DIR$/src/terminplaner/planerView.fxml" />
         <option value="$PROJECT_DIR$/src/Sourcen/ErrorViewController.java" />
-        <option value="$PROJECT_DIR$/src/terminplaner/Terminplaner.java" />
-        <option value="$PROJECT_DIR$/src/terminplaner/TerminViewController.java" />
         <option value="$PROJECT_DIR$/src/sample/adressbuchView.fxml" />
         <option value="$PROJECT_DIR$/src/sample/AdressbuchViewController.java" />
         <option value="$PROJECT_DIR$/src/Sourcen/Adressbuch.java" />
-        <option value="$PROJECT_DIR$/src/terminplaner/PlanerViewController.java" />
         <option value="$PROJECT_DIR$/src/Sourcen/ViewHelper.java" />
+        <option value="$PROJECT_DIR$/src/terminplaner/TerminViewController.java" />
+        <option value="$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java" />
+        <option value="$PROJECT_DIR$/src/terminplaner/PlanerViewController.java" />
+        <option value="$PROJECT_DIR$/src/terminplaner/Terminplaner.java" />
+        <option value="$PROJECT_DIR$/src/adressbuch/Kontakt.java" />
       </list>
     </option>
   </component>
@@ -299,7 +302,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Sourcen" />
+              <option name="myItemId" value="adressbuch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -322,7 +325,7 @@
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Programmierung II" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -741,7 +744,7 @@
       <workItem from="1497432160773" duration="10975000" />
       <workItem from="1497865288722" duration="28518000" />
       <workItem from="1498047656943" duration="2658000" />
-      <workItem from="1498603712843" duration="8912000" />
+      <workItem from="1498603712843" duration="35770000" />
     </task>
     <task id="LOCAL-00001" summary="Alles fertig bis auf die letzte Aufgabe">
       <created>1497304462354</created>
@@ -778,15 +781,22 @@
       <option name="project" value="LOCAL" />
       <updated>1498604893431</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Aufgabe 7 nun richtig - 8 init!">
+      <created>1499107003711</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1499107003711</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94168000" />
+    <option name="totallyTimeSpent" value="121026000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1102" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -794,11 +804,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6607539" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21618626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2195122" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.58536583" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20734341" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20734341" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991362" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -814,11 +825,28 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -829,7 +857,8 @@
     <MESSAGE value="Aufgabe 7 init" />
     <MESSAGE value="Aufgabe 7, Seite 3!" />
     <MESSAGE value="Aufgabe 7, Seite 3! Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aufgabe 7, Seite 3! Test" />
+    <MESSAGE value="Aufgabe 7 nun richtig - 8 init!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aufgabe 7 nun richtig - 8 init!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -840,36 +869,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/scene/control/TableColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="799" column="17" lean-forward="false" selection-start-line="799" selection-start-column="17" selection-end-line="799" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/ViewHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/ErrorViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-          <folding>
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <marker date="1498040964516" expanded="false" signature="211:345" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1957">
           <caret line="166" column="23" lean-forward="true" selection-start-line="166" selection-start-column="23" selection-end-line="166" selection-end-column="23" />
@@ -879,7 +879,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchStart.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchStart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
@@ -887,7 +887,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -897,18 +897,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/Kontakt.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/Kontakt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1175">
           <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
           <folding>
-            <element signature="e#1382#1383#0" expanded="false" />
-            <element signature="e#1409#1410#0" expanded="false" />
+            <element signature="e#1399#1400#0" expanded="false" />
+            <element signature="e#1426#1427#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/errorView.fxml">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/errorView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -919,7 +919,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/adressbuchView.fxml">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/adressbuchView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
@@ -930,7 +930,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchStart.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchStart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
@@ -938,7 +938,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -948,7 +948,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/adressbuchView.fxml">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/adressbuchView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
@@ -959,7 +959,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchStart.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchStart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -967,7 +967,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
@@ -977,18 +977,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/Kontakt.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/Kontakt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1382#1383#0" expanded="false" />
-            <element signature="e#1409#1410#0" expanded="false" />
+            <element signature="e#1399#1400#0" expanded="false" />
+            <element signature="e#1426#1427#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/adressbuchView.fxml">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/adressbuchView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
@@ -999,7 +999,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchStart.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchStart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1007,7 +1007,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
@@ -1017,7 +1017,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/adressbuchView.fxml">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/adressbuchView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1400">
           <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
@@ -1028,7 +1028,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchStart.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchStart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
@@ -1036,7 +1036,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
@@ -1046,7 +1046,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/adressbuchView.fxml">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/adressbuchView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
@@ -1071,22 +1071,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/UngueltigerSchluesselException.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/UngueltigerSchluesselException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/Kontakt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-          <folding>
-            <element signature="e#1382#1383#0" expanded="false" />
-            <element signature="e#1409#1410#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1113,7 +1102,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Sourcen/HauptfensterViewController.java" />
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/DoppelterSchluesselException.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/DoppelterSchluesselException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
@@ -1146,27 +1135,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/terminplaner/Termin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2667">
-          <caret line="55" column="42" lean-forward="true" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/terminplaner/TerminVerwaltung.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-          <folding>
-            <element signature="e#5265#5266#0" expanded="false" />
-            <element signature="e#5305#5306#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/util/AbstractCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -1181,7 +1149,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/errorView.fxml">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/errorView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
@@ -1192,14 +1160,51 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/ErrorViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/ErrorViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
           <folding>
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <marker date="1498040964516" expanded="false" signature="211:345" ph="..." />
+            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+            <marker date="1499518263844" expanded="false" signature="214:348" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchStart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/adressbuchView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/Adressbuch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="70" column="8" lean-forward="true" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/ViewHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1215,36 +1220,73 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/terminplaner/Terminplaner.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/scene/control/ListView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="99" column="48" lean-forward="true" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/terminplaner/TerminViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        <state relative-caret-position="288">
+          <caret line="457" column="43" lean-forward="false" selection-start-line="457" selection-start-column="43" selection-end-line="457" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchStart.java">
+    <entry file="file://$PROJECT_DIR$/src/terminplaner/Termin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="211">
+          <caret line="79" column="19" lean-forward="false" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
+          <folding>
+            <element signature="e#2442#2443#0" expanded="false" />
+            <element signature="e#2473#2474#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/terminplaner/UngueltigerTerminException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/terminplaner/TerminUeberschneidungException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="62" lean-forward="false" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/terminplaner/StartPlaner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="46" lean-forward="true" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+        <state relative-caret-position="222">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/terminplaner/TerminVerwaltung.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/terminplaner/TerminViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2880">
+          <caret line="183" column="7" lean-forward="false" selection-start-line="183" selection-start-column="7" selection-end-line="183" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/AdressbuchViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2150">
+          <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1253,50 +1295,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/terminplaner/PlanerViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="165" column="0" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+        <state relative-caret-position="430">
+          <caret line="191" column="0" lean-forward="true" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4177#4178#0" expanded="true" />
+            <element signature="e#4215#4216#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/ViewHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/terminplaner/Terminplaner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/adressbuchView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/Adressbuch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="70" column="8" lean-forward="true" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+        <state relative-caret-position="355">
+          <caret line="119" column="44" lean-forward="true" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sourcen/AdressbuchViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/adressbuch/Kontakt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="181" column="29" lean-forward="false" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="125">
+          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>

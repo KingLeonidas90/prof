@@ -1,7 +1,7 @@
 package terminplaner;
 
 
-import Sourcen.Kontakt;
+import adressbuch.Kontakt;
 
 import java.io.Serializable;
 import java.time.LocalDate;

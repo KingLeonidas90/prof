@@ -1,4 +1,4 @@
-package Sourcen;
+package adressbuch;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
  *
  * @author David J. Barnes und Michael Koelling.
  */
-public class Kontakt implements Comparable<Kontakt> {
+public class Kontakt implements Comparable<Kontakt>, Serializable {
 
     private String name;
     private String telefon;

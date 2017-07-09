@@ -2,8 +2,9 @@ package terminplaner;
 
 
 
-import Sourcen.Kontakt;
+import adressbuch.Kontakt;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -56,6 +57,8 @@ public class TerminViewController implements Initializable {
         this.controller = view;
     }
 
+
+
     /**
      * Initializes the controller class.
      */
@@ -63,8 +66,16 @@ public class TerminViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<Kontakt> items = FXCollections.observableArrayList();
         teilnehmerliste.setItems(items);
-        
-        // Hier kommt Ihr Code hinein
+
+        if(termin == null && controller != null)
+            initNewTermin();
+        else if(termin != null && controller != null)
+            initUpdateTermin();
+        else if(termin != null && controller == null)
+            initShowTermin();
+        addTeilnehmer.setOnAction(e -> showKontakte());
+        save.setOnAction(e -> saveTermin());
+        cancel.setOnAction(e -> close());
     }
 
     /**
@@ -72,6 +83,11 @@ public class TerminViewController implements Initializable {
      * eines neuen Termins. 
      */
     private void initNewTermin() {
+        titel.setText("Termineditor");
+        datum.setValue(LocalDate.now());
+        save.setText("Speichern");
+
+
 
 
     }
@@ -81,7 +97,15 @@ public class TerminViewController implements Initializable {
      * eines Termins. 
      */
     private void initUpdateTermin() {
-
+        titel.setText(titel.getText() + termin.getBesitzer().getName());
+        datum.setValue(termin.getDatum());
+        addTeilnehmer.setDisable(true);
+        von.setText(termin.getVon().toString());
+        bis.setText(termin.getBis().toString());
+        text.setText(termin.getText());
+        ObservableList<Kontakt> teilnehmer = FXCollections.observableArrayList();
+        teilnehmer.addAll(termin.getTeilnehmer());
+        teilnehmerliste.setItems(teilnehmer);
     }
     
     /**
@@ -89,7 +113,14 @@ public class TerminViewController implements Initializable {
      * eines fremden Termins. 
      */
     private void initShowTermin() {
-        
+        initUpdateTermin();
+        addTeilnehmer.setDisable(true);
+        save.setDisable(true);
+        datum.setEditable(false);
+        von.setEditable(false);
+        bis.setEditable(false);
+        text.setEditable(false);
+        teilnehmerliste.setEditable(false);
     }
     
     /**
@@ -100,6 +131,25 @@ public class TerminViewController implements Initializable {
      * z.B. wegen der von/bis Angaben, so wird der Fehler im Fenster angezeigt.
      */
     private void saveTermin() {
+        Termin t;
+        try {
+            if(termin == null) {
+                t = new Termin(text.getText(), datum.getValue(), getTime(von.getText()), getTime(bis.getText()));
+            } else {
+                t = termin.getCopy();
+                t.setDatum(datum.getValue());
+                t.setText(text.getText());
+                t.setVonBis(getTime(von.getText()), getTime(bis.getText()));
+            }
+            ObservableList<Kontakt> teilnehmer = teilnehmerliste.getItems();
+            for(int i = 0; i < teilnehmer.size(); i++) {
+                t.addTeilnehmer(teilnehmer.get(i));
+            }
+            controller.processTermin(t);
+            close();
+        } catch(UngueltigerTerminException ex) {
+            error.setText(ex.toString());
+        }
   
     }
 

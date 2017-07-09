@@ -1,6 +1,5 @@
-package Sourcen;
+package adressbuch;
 
-import Sourcen.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -83,6 +82,7 @@ public class AdressbuchViewController implements Initializable{
         } );*/
         // Erzeugen einer Instanz von ObservableList<Kontakt>
         tableContent = FXCollections.observableArrayList();
+        searchField.textProperty().addListener(e -> filterList());
         configureTable();
     }
 
@@ -151,9 +151,10 @@ public class AdressbuchViewController implements Initializable{
     }
 
     // Methode um eingebene Präfixe im Textfeld in der TextArea darzustellen
-    private void filterList(String query) throws UngueltigerSchluesselException {
+    private void filterList() {
 
-        Kontakt [] kontakte = adressbuch.getKontakte(query);
+        String tf = searchField.getText();
+        Kontakt [] kontakte = adressbuch.getKontakte(tf);
         showKontakte(kontakte);
 
 
